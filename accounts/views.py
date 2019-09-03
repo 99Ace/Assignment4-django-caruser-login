@@ -18,6 +18,7 @@ def login(request):
             # attempt to check the username and password is valid
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password'])
+            messages.success(request, "You have successfully logged in")
             if user:
                 # log in the user
                 auth.login(user=user, request=request)
