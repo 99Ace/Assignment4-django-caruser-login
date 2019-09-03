@@ -1,11 +1,18 @@
 {%extends 'base.html' %}
-{%block page_title %}  Login {%endblock %}
 
 {%block title %}   
-<h1> Profile Page</h1>
+<h1>{{ user }}'s Profile</h1>
 {%endblock %}
+
 {%block content %}
-  <div> 
-   Profile PAge    
-  </div>
+  <table>
+    <tr>
+      <th>User Name :</th>
+      <td>{{ user }}</td>
+    </tr> 
+    <tr>
+        <th>Registered Email :</th>
+        <td>{{ user.email }}</td>
+    </tr> 
+  </table>
 {%endblock%}

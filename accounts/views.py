@@ -65,4 +65,8 @@ def register(request):
 
 @login_required        
 def profile(request):
-    return render(request, 'profile.html')   
+    User = get_user_model()
+    user = User.objects.get(email=request.user.email)
+    return render(request, 'profile.html', {
+        'user' : user
+    })
