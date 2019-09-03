@@ -62,7 +62,7 @@ def register(request):
         return render(request, 'register.html', {
             'form':form
         })
-
+    
 @login_required        
 def profile(request):
     User = get_user_model()
@@ -70,3 +70,5 @@ def profile(request):
     return render(request, 'profile.html', {
         'user' : user
     })
+    
+
