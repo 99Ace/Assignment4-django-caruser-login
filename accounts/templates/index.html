@@ -2,7 +2,7 @@
 {%block page_title %}  Login {%endblock %}
 
 {%block title %}   
-<h1> Login Page</h1>
+<h1> Main Page</h1>
 {%endblock %}
 {%block content %}
   <div class=""> 
@@ -17,7 +17,7 @@
     {% endif %}
 
     <ul>
-        <li><a href=""> Login</a></li>
+        <li> <a href="{% url 'login' %}">Login</a></li>
         <li><a href=""> Registration</a></li>
         <li><a href=""> Profile</a></li>
         <li><a href="{% url 'logout' %}"> Logout</a></li>        
