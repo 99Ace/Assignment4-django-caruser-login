@@ -8,15 +8,9 @@
   <div> 
     <form method='POST'>
          {% csrf_token %}
-         <input type="text" name="username" placeholder="username"/>
-         <input type="text" name="password" placeholder="password"/>
-         
+         {{ form.as_p }}
          <input type="submit">
+
     </form>
-    <hr> {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
-    </div>
-    {% endif %}
   </div>
 {%endblock%}

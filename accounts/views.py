@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import auth, messages
-from .forms import LoginForm
+from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -30,6 +30,22 @@ def login(request):
         login_form = LoginForm
         return render(request, 'login.html', {
             'form':login_form
+        })
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid(): #1 check if the entry to the form are valid
+            pass
+        else:
+            #2 if not valid, return the form to the view to show the errors
+            return render(request, 'register.html', {
+                'form':form
+            })
+    else:
+        form = UserRegistrationForm()
+        return render(request, 'register.html', {
+            'form':form
         })
 
 @login_required        

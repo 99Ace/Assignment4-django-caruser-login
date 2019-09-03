@@ -2,10 +2,15 @@
 {%block page_title %}  Login {%endblock %}
 
 {%block title %}   
-<h1> LogOut Page</h1>
+<h1> Login Page</h1>
 {%endblock %}
 {%block content %}
   <div> 
-   Logout PAge    
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit'/>
+    </form>
+
   </div>
 {%endblock%}
