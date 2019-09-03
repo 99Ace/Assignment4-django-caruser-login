@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import auth, messages
+from .forms import LoginForm
 
 # Create your views here.
 def index(request):
@@ -11,6 +12,22 @@ def logout(request):
     return redirect(reverse('index'))
     
 def login(request):
-    """Returns the login page"""
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST) # populate the form from what the user has keyed in
+        if login_form.is_valid():
+            # attempt to check the username and password is valid
+            user = auth.authenticate(username=request.POST['username'],
+                                     password=request.POST['password'])
+            if user:
+                # log in the user
+                auth.login(user=user, request=request)
+                return redirect(reverse('index'))
+            else:
+                login_form.add_error('None', "Invalid username or password")
+    else:
+        login_form = LoginForm
+        return render(request, 'login.html', {
+            'form':login_form
+        })
+
     

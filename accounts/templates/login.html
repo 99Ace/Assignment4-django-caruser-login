@@ -6,6 +6,12 @@
 {%endblock %}
 {%block content %}
   <div> 
-   Login PAge    
+    <form method='POST'>
+         {% csrf_token %}
+         <input type="text" name="username" placeholder="username"/>
+         <input type="text" name="password" placeholder="password"/>
+         
+         <input type="submit">
+    </form>
   </div>
 {%endblock%}
