@@ -5,7 +5,7 @@ class Vehicle(models.Model):
     """ CAR PLATE WILL BE THE REFERENCE ID FOR DELETION"""
     carplate = models.CharField(
         max_length=8,
-        primary_key=True
+        blank=False
     )
     
     """ PREFIX INPUT FOR 4 TYPES OF MAKE AVAILABLE FOR ENTRY"""
@@ -19,6 +19,7 @@ class Vehicle(models.Model):
         max_length=15,
         choices=CAR_MAKE,
         default='Audi',
+        blank=False
     )
     """ FIELD TO LET USER ENTER THE CAR MODEL """
     car_model = models.CharField(max_length=30)
@@ -57,7 +58,9 @@ class Vehicle(models.Model):
         default = '2009'
     )
     """ FOR USER TO ENTER THE LISTED PRICE AND MILEAGE OF THE CAR """
-    price = models.IntegerField()
+    price = models.IntegerField(
+         blank=False
+         )
     mileage = models.IntegerField()
     
     """ FOR USER TO ENTER SOME MARKETING LINER FOR THEIR LISTED CAR """

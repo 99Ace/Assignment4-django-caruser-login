@@ -81,7 +81,7 @@
               <span class="car-badge badge badge-primary"> {{ d.status }} </span>
             </td>
             <td>
-              <a href='{% url 'edit_listing' %}'>Edit</a>|
+              <a href='edit_listing/{{d.id}}'>Edit</a>|
               <a href='{% url 'delete_listing' %}'>Delete</a>
             </td>
           </tr>
