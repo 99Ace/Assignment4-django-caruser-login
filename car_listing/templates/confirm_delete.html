@@ -8,9 +8,10 @@
 {%endblock %}
 {%block content %}
     <div class="p-5">
-        <h1>You are about to remove car List</h1>
+        <h1>You are about to remove {{car.car_make}} {{car.car_model}} [ Plate No:{{ car.carplate }} ]</h1>
         <a class="btn btn-warning" href="{% url 'listing' %}">Back</a>
-        <a class='btn btn-danger' href=''>CONFIRM DELETE</a>
+        <a class='btn btn-danger' href='../delete_listing/{{car.id}}'>Delete</a>
+
     </div>
 {%endblock%}
 

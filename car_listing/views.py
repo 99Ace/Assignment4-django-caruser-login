@@ -25,23 +25,29 @@ def add_listing(request):
         })
     
 def edit_listing(request, id):
-    item = get_object_or_404(Vehicle, pk=id)
+    car = get_object_or_404(Vehicle, pk=id)
     
     if request.method == "POST":
-        edit_entry_form = EditEntry(request.POST, request.FILES, instance=item)
+        edit_entry_form = EditEntry(request.POST, request.FILES, instance=car)
         if edit_entry_form.is_valid():
-            edit_entry_form.carplate = item.carplate
-            edit_entry_form.date = item.date
+            edit_entry_form.carplate = car.carplate
+            edit_entry_form.date = car.date
             edit_entry_form.save()
             return redirect(listing)
     else:
-        edit_entry_form = EditEntry(instance=item)
+        edit_entry_form = EditEntry(instance=car)
         return render(request, 'edit_listing.html',{
             'form': edit_entry_form
         })
-
-
     return render(request, 'edit_listing.html')
 
-def delete_listing(request):
-    return render(request, 'delete_listing.html')    
+def confirm_delete(request, id):
+    car = get_object_or_404(Vehicle, pk=id)
+    return render(request, 'confirm_delete.html', {
+        'car': car
+    })    
+    
+def delete_listing(request, id):
+    Vehicle.objects.filter(pk=id).delete()
+    return redirect(listing)
+  
