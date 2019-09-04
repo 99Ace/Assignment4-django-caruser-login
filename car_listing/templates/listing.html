@@ -4,36 +4,37 @@
 
 
 {%block title %}   
-<div class="px-5 py-2">
-  <form style="font-size:10pt; color:rgb(127, 127, 127)" method="POST">
+{{ d }}
+<!--<div class="px-5 py-2">-->
+<!--  <form style="font-size:10pt; color:rgb(127, 127, 127)" method="POST">-->
      <!--To allow user to select Car Make-->
-    <select name="search-car">
-      <option value="all"           > All Vehicle Make </option>                    
-      <option value="Honda Fit"          > Honda Fit </option>                    
-      <option value="Toyota Harrier" > Toyota Harrier </option>                    
-      <option value="Toyota Harrier Premium"           > Toyota Harrier Premium </option>                    
-    </select>
+<!--    <select name="search-car">-->
+<!--      <option value="all"           > All Vehicle Make </option>                    -->
+<!--      <option value="Honda Fit"          > Honda Fit </option>                    -->
+<!--      <option value="Toyota Harrier" > Toyota Harrier </option>                    -->
+<!--      <option value="Toyota Harrier Premium"           > Toyota Harrier Premium </option>                    -->
+<!--    </select>-->
    <!--To allow user to select his choice of type of cars to view -->
-    <select name="search-car-type">
-      <option value="all"> All Passenger Cars</option>    
-      <option value="Hybrid Car"> Hybrid Car</option>                    
-      <option value="Hatchback"> Hatchback</option>                    
-      <option value="Luxury Sedan"> Luxury Sedan</option>                    
-      <option value="MPV"> MPV</option>                    
-      <option value="Mid-sized Sedan"> Mid-sized Sedan</option>                    
-      <option value="Sports"> Sports</option>                    
-      <option value="Stationwagon"> Stationwagon</option>                    
-      <option value="SUV"> SUV</option> 
-    </select>
+<!--    <select name="search-car-type">-->
+<!--      <option value="all"> All Passenger Cars</option>    -->
+<!--      <option value="Hybrid Car"> Hybrid Car</option>                    -->
+<!--      <option value="Hatchback"> Hatchback</option>                    -->
+<!--      <option value="Luxury Sedan"> Luxury Sedan</option>                    -->
+<!--      <option value="MPV"> MPV</option>                    -->
+<!--      <option value="Mid-sized Sedan"> Mid-sized Sedan</option>                    -->
+<!--      <option value="Sports"> Sports</option>                    -->
+<!--      <option value="Stationwagon"> Stationwagon</option>                    -->
+<!--      <option value="SUV"> SUV</option> -->
+<!--    </select>-->
     <!--To allow user to select to view Sold vehicle listing or Available vehicle listing or all listings-->
-    <select name='availability'>
-      <option value= 'all'      > All Status </option>
-      <option value= 'Available'> Available </option>
-      <option value= 'Sold Out' > Sold </option>
-    </select>            
-    <input type='submit' value='Find Used' class='btn btn-warning' />
-  </form>
-</div>
+<!--    <select name='availability'>-->
+<!--      <option value= 'all'      > All Status </option>-->
+<!--      <option value= 'Available'> Available </option>-->
+<!--      <option value= 'Sold Out' > Sold </option>-->
+<!--    </select>            -->
+<!--    <input type='submit' value='Find Used' class='btn btn-warning' />-->
+<!--  </form>-->
+<!--</div>-->
 {%endblock %}
 
 {%block content %}
@@ -65,7 +66,9 @@
             <td style="color:red"><b>
              $$$$$
               </b></td>
-            <td >2011</td>
+            <td >
+              Year of Make
+              </td>
             <td>1000km</td>
             <td>Sedan</td>
             <td rowspan="2" class="border-white text-left">

@@ -15,7 +15,11 @@
         <td>{{ user.email }}</td>
     </tr> 
   </table>
-</div>
+  
+  
+  <a class="btn btn-warning" href='{% url 'listing' %}'>View Listing</a> | 
+  <a class="btn btn-primary" href='{% url 'add_listing' %}'>Add Vehicle</a> | 
+  <a class="btn btn-danger" href='{% url 'delete_listing' %}'>Delete</a></div>
 
   </table>
 {%endblock%}

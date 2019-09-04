@@ -5,89 +5,99 @@
 
 {%block title %}   
 <h1> Add Vehicle</h1>
+
 {%endblock %}
 {%block content %}
-  <form class="form-group w-50" method="POST">
-        <table class="table">
-          <thead>
-            <th colspan="2"><i>PLEASE ENTER YOUR CAR DETAILS BELOW</i></th>
-          </thead>
-          <tbody>
+
+  <!--<form class="form-group w-50" method="POST">-->
+  <!--      <table class="table">-->
+  <!--        <thead>-->
+  <!--          <th colspan="2"><i>PLEASE ENTER YOUR CAR DETAILS BELOW</i></th>-->
+  <!--        </thead>-->
+  <!--        <tbody>-->
             <!--Car Make Selector (Pre-defined and restricted to a few make)-->
-            <tr>
-              <th scope="col">Car Make</th>
-              <td scope="col">
-                <select name="car-make" class="form-control">
-                  <option value="Audi">Audi</option>                    
-                  <option value="Mercedes-Benz">Mercedes-Benz</option>                    
-                  <option value="BMW">BMW</option>                    
-                  <option value="Volvo">Volvo</option>                    
-                  <option value="Jaguar">Jaguar</option>                    
-                </select>
-              </td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="col">Car Make</th>-->
+  <!--            <td scope="col">-->
+  <!--              <select name="car-make" class="form-control">-->
+  <!--                <option value="Audi">Audi</option>                    -->
+  <!--                <option value="Mercedes-Benz">Mercedes-Benz</option>                    -->
+  <!--                <option value="BMW">BMW</option>                    -->
+  <!--                <option value="Volvo">Volvo</option>                    -->
+  <!--                <option value="Jaguar">Jaguar</option>                    -->
+  <!--              </select>-->
+  <!--            </td>-->
+  <!--          </tr>-->
             <!--Car Model Entry Box-->
-            <tr>
-              <th scope="col">Car Model</th>
-              <td scope="col"><input type="text" name="car-model" class="form-control">
-              </td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="col">Car Model</th>-->
+  <!--            <td scope="col"><input type="text" name="car-model" class="form-control">-->
+  <!--            </td>-->
+  <!--          </tr>-->
             <!--Year of make Entry Box-->
-            <tr>
-              <th scope="col">Year Of Make</th>
-              <td scope="col">
-                <div class="input-group">
-                 <select id='year' name="year" class="form-control"></select>
-                </div>
-              </td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="col">Year Of Make</th>-->
+  <!--            <td scope="col">-->
+  <!--              <div class="input-group">-->
+  <!--               <select id='year' name="year" class="form-control"></select>-->
+  <!--              </div>-->
+  <!--            </td>-->
+  <!--          </tr>-->
             <!--Asking Price Entry Box-->
-            <tr>
-              <th scope="col">Asking Price</th>
-              <td scope="col"><input type="text" name="car-price" class="form-control" /></td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="col">Asking Price</th>-->
+  <!--            <td scope="col"><input type="text" name="car-price" class="form-control" /></td>-->
+  <!--          </tr>-->
             <!--Mileage Entry Box-->
-            <tr>
-              <th scope="col">Mileage</th>
-              <td scope="col"><input type="text" name="mileage" class="form-control" /></td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="col">Mileage</th>-->
+  <!--            <td scope="col"><input type="text" name="mileage" class="form-control" /></td>-->
+  <!--          </tr>-->
             <!--Car Description Textbox Entry-->
-            <tr>
-              <th scope="col">Car Description</th>
-              <td scope="col"><textarea name='description' class="form-control" aria-label="With textarea"></textarea></td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="col">Car Description</th>-->
+  <!--            <td scope="col"><textarea name='description' class="form-control" aria-label="With textarea"></textarea></td>-->
+  <!--          </tr>-->
             <!--Vehicle Type selector-->
-            <tr>
-              <th scope="row">Vehicle Type</th>
-              <td>
-                <select name='car-type' class="form-control">
-                  <option value="Luxury Sedan">Luxury Sedan</option>                    
-                  <option value="Hatchback">Hatchback</option>                    
-                  <option value="MPV">MPV</option>                    
-                  <option value="Mid-sized Sedan">Mid-sized Sedan</option>                    
-                  <option value="Sports">Sports</option>                    
-                  <option value="Stationwagon">Stationwagon</option>                    
-                  <option value="SUV">SUV</option> 
-                  <option value="Hybrid">Hybrid Car</option>                    
-                </select>
-              </td>
-            </tr>
+  <!--          <tr>-->
+  <!--            <th scope="row">Vehicle Type</th>-->
+  <!--            <td>-->
+  <!--              <select name='car-type' class="form-control">-->
+  <!--                <option value="Luxury Sedan">Luxury Sedan</option>                    -->
+  <!--                <option value="Hatchback">Hatchback</option>                    -->
+  <!--                <option value="MPV">MPV</option>                    -->
+  <!--                <option value="Mid-sized Sedan">Mid-sized Sedan</option>                    -->
+  <!--                <option value="Sports">Sports</option>                    -->
+  <!--                <option value="Stationwagon">Stationwagon</option>                    -->
+  <!--                <option value="SUV">SUV</option> -->
+  <!--                <option value="Hybrid">Hybrid Car</option>                    -->
+  <!--              </select>-->
+  <!--            </td>-->
+  <!--          </tr>-->
             <!--Car Availablility-->
-            <tr>
-            <th colspan="2">            
-              <label class="radio-inline"><input name='availability' type="radio" value= 'Available' checked> Available </label>
-              <label class="radio-inline"><input name='availability' type="radio" value= 'Sold' ><span style="color:red"> Sold </span></label>
-            </th>
-            </tr>
-          </tbody>
-        </table>
-        <hr/>
+  <!--          <tr>-->
+  <!--          <th colspan="2">            -->
+  <!--            <label class="radio-inline"><input name='availability' type="radio" value= 'Available' checked> Available </label>-->
+  <!--            <label class="radio-inline"><input name='availability' type="radio" value= 'Sold' ><span style="color:red"> Sold </span></label>-->
+  <!--          </th>-->
+  <!--          </tr>-->
+  <!--        </tbody>-->
+  <!--      </table>-->
+  <!--      <hr/>-->
 
-        <a class="btn btn-danger" href="{% url 'listing' %}">Back</a>
-        <input type='submit' value='Add to Listing' class='btn btn-primary' />
+  <!--      <a class="btn btn-danger" href="{% url 'listing' %}">Back</a>-->
+  <!--      <input type='submit' value='Add to Listing' class='btn btn-primary' />-->
 
-      </form>
+  <!--    </form>-->
+  <div> 
+    <form method="POST">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <a class="btn btn-danger" href="{% url 'listing' %}">Back</a>
+         <input class="btn btn-primary" type="submit" >
 
+    </form>
+  </div>
 {%endblock%}
 
 

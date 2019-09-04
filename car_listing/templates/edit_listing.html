@@ -8,6 +8,7 @@
 {%endblock %}
 {%block content %}
   <form class="form-group w-50" method="POST">
+         {% csrf_token %}
         <table class="table">
           <thead>
             <th colspan="2"><i>PLEASE ENTER YOUR CAR DETAILS BELOW</i></th>
