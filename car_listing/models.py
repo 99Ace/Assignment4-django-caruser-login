@@ -3,37 +3,40 @@ from django.db import models
 # Create your models here.
 class Vehicle(models.Model):
     """ CAR PLATE WILL BE THE REFERENCE ID FOR DELETION"""
-    carplate = models.CharField(max_length=8)
+    carplate = models.CharField(
+        max_length=8,
+        primary_key=True
+    )
     
     """ PREFIX INPUT FOR 4 TYPES OF MAKE AVAILABLE FOR ENTRY"""
     CAR_MAKE = [
-        ('AUD','Audi'),
+        ('Audi','Audi'),
         ('BMW','BMW'),
-        ('MER','Mercedes-Benz'),
-        ('VOL','Volvo'),
+        ('Mercedes-Benz','Mercedes-Benz'),
+        ('Volvo','Volvo'),
     ]
     car_make = models.CharField(
-        max_length=3,
+        max_length=15,
         choices=CAR_MAKE,
-        default='AUD',
+        default='Audi',
     )
     """ FIELD TO LET USER ENTER THE CAR MODEL """
     car_model = models.CharField(max_length=30)
     
     """ PREFIX SELECTION FOR USER TO ASSIGN THE CAR TYPE TO THE CAR ENTERED """
     CAR_TYPE = [
-        ('LUXSEDAN',"Luxury Sedan"),                    
-        ('HATCHBACK',"Hatchback"),
+        ('Luxury Sedan',"Luxury Sedan"),                    
+        ('Hatchback',"Hatchback"),
         ('SUV', 'SUV'),
         ('MPV',"MPV"),
-        ('SPORT',"Sports"),
-        ('SWAGON',"Stationwagon"),
-        ('HYBRID',"Hybrid")
+        ('Sports',"Sports"),
+        ('Stationwagon',"Stationwagon"),
+        ('Hybrid',"Hybrid")
     ]
     car_type = models.CharField(
-        max_length=10,
+        max_length=15,
         choices=CAR_TYPE,
-        default='LUXSEDAN',
+        default='Luxury Sedan',
     )
     """ PREFIX SELECTION FOR YEAR OF MANUFACTURE FOR THE CAR - LIMIT SET TO 10YEAR FOR PROJECT PURPOSE """
     YOM = [
@@ -62,12 +65,13 @@ class Vehicle(models.Model):
     
     """ PREFIX THE NEW ENTRY AS AVAILABLE """
     STATUS = [
-        (True, 'Available'),
-        (False, 'Sold'),
+        ('Available', 'Available'),
+        ('Sold', 'Sold'),
     ]
-    status = models.BooleanField(
+    status = models.CharField(
+        max_length = 10,
         choices = STATUS,
-        default= True
+        default= 'Available'
     )
     
     """ AUTO ADD THE CREATION DATE """

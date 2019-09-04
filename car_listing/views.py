@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 from .forms import NewEntry
+from .models import Vehicle
 
 # Create your views here.
+
 def listing(request):
-    return render(request, 'listing.html')
-    
+    results = Vehicle.objects.all()
+    return render(request, 'listing.html', {
+        'details':results
+    })
+   
+   
+""" TO CREATE A NEW VEHICLE LISTING """  
 def add_listing(request):
     if request.method == "POST":
         new_entry_form = NewEntry(request.POST, request.FILES)

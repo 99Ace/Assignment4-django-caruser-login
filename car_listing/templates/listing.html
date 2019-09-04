@@ -57,26 +57,28 @@
       </thead>
       <!--Car Listing -->
       <tbody class="listing ">
+        {%for d in details %}
+
         <tr>
           <tr>
             <td rowspan="3">
               <image src="../static/image-page/mini.jpg" class="car-image" />
             </td>
-            <td class="blue text-left"><b>Audi</b></td>
+            <td class="blue text-left"><b>{{ d.car_make }} {{ d.car_model }}</b></td>
             <td style="color:red"><b>
-             $$$$$
+             {{ d.price }}
               </b></td>
             <td >
-              Year of Make
+              {{ d.year_of_make }}
               </td>
-            <td>1000km</td>
-            <td>Sedan</td>
+            <td>{{ d.mileage }}</td>
+            <td>{{ d.car_type }}</td>
             <td rowspan="2" class="border-white text-left">
-              <span class="car-badge badge badge-primary"> <a> Audi </a></span>
-              <span class="car-badge badge badge-primary"> A4 </span>
-              <span class="car-badge badge badge-primary"> 2011 </span>
-              <span class="car-badge badge badge-primary"> Sedan </span>
-              <span class="car-badge badge badge-primary"> Sold </span>
+              <span class="car-badge badge badge-primary"> <a> {{ d.car_make }} </a></span>
+              <span class="car-badge badge badge-primary"> {{ d.car_model }} </span>
+              <span class="car-badge badge badge-primary"> {{ d.year_of_make }} </span>
+              <span class="car-badge badge badge-primary"> {{ d.car_type }} </span>
+              <span class="car-badge badge badge-primary"> {{ d.status }} </span>
             </td>
             <td>
               <a href='{% url 'edit_listing' %}'>Edit</a>|
@@ -90,6 +92,7 @@
           </tr>
     
         </tr>
+        {%endfor%}
       </tbody>
     </table>
   </div>
