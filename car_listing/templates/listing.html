@@ -80,7 +80,7 @@
               <span class="car-badge badge badge-primary"> {{ d.car_type }} </span>
               <span class="car-badge badge badge-primary"> {{ d.status }} </span>
             </td>
-            <td>
+            <td class='border'>
               <a href='edit_listing/{{d.id}}'>Edit</a>|
               <a href='confirm_delete/{{d.id}}'>Delete</a>
             </td>
@@ -88,6 +88,9 @@
           <tr>
             <td colspan="6" class="border-white  text-left">
               <b>Description :   </b> {{ d.description }}
+            </td>
+            <td>
+              <a href="{% url 'place_deposit' %}" class="btn btn-danger">Place Deposit</a>
             </td>
           </tr>
     
