@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{%extends 'base.html' %}
+
+{%block page_title %}  Login {%endblock %}
+
+
+{%block title %}   
+<h1> Deposit for {{ car.car_make }} {{ car.car_model }}</h1>
+
+{%endblock %}
+{%block content %}
+
+  <div> 
+    <form method="POST">
+      {% csrf_token %}
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="{{ key }}"
+              data-description="Donate"
+              data-amount="{{amount}}"
+              data-locale="auto"></script>
+      <input type='hidden' name='amount' value='{{amount}}'/>
+    </form>
+  </div>
+{%endblock%}
+
+
+
+
