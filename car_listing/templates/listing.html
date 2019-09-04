@@ -73,7 +73,7 @@
               </td>
             <td>{{ d.mileage }}</td>
             <td>{{ d.car_type }}</td>
-            <td rowspan="2" class="border-white text-left">
+            <td rowspan="2" class=" text-left">
               <span class="car-badge badge badge-primary"> <a> {{ d.car_make }} </a></span>
               <span class="car-badge badge badge-primary"> {{ d.car_model }} </span>
               <span class="car-badge badge badge-primary"> {{ d.year_of_make }} </span>
@@ -90,7 +90,7 @@
               <b>Description :   </b> {{ d.description }}
             </td>
             <td>
-              <a href="{% url 'place_deposit' %}" class="btn btn-danger">Place Deposit</a>
+              <a href='../deposit/place_deposit/{{d.id}}' class="btn btn-danger">Place Deposit</a>
             </td>
           </tr>
     
