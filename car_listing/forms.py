@@ -17,7 +17,6 @@ class NewEntry(forms.ModelForm):
             'description',
             'image',
             'status',
-            
         )
         
 class EditEntry(forms.ModelForm):

@@ -67,7 +67,7 @@ def register(request):
 def profile(request):
     User = get_user_model()
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {
+    return render(request, 'index.html', {
         'user' : user
     })
     

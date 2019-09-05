@@ -1,8 +1,15 @@
 from django.db import models
 from pyuploadcare.dj.models import ImageField
+from accounts.models import MyUser
 
 # Create your models here.
 class Vehicle(models.Model):
+    user = models.ForeignKey(
+        MyUser, on_delete=models.CASCADE,
+        null= False,
+        blank = False
+        )
+    
     """ CAR PLATE WILL BE THE REFERENCE ID FOR DELETION"""
     carplate = models.CharField(
         max_length=8,

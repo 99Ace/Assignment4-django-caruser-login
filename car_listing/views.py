@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 from .forms import NewEntry, EditEntry
 from .models import Vehicle
+from accounts.models import MyUser
 
 # Create your views here.
 # DISPLAY ALL THE CARS IN LISTINGS
 def listing(request):
     results = Vehicle.objects.all()
     return render(request, 'listing.html', {
-        'details':results
+        'details':results,
     })
    
 # TO CREATE A NEW VEHICLE LISTING

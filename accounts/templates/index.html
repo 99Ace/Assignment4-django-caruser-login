@@ -14,5 +14,22 @@
         <span class="text-danger">{% for message in messages %} {{ message }} {% endfor %}</span>
     </div>
     {% endif %}
+    
+    {% if user.is_authenticated %}
+      <table>
+        <tr>
+          <th>User Name :</th>
+          <td>{{ user }}</td>
+        </tr> 
+        <tr>
+            <th>Registered Email :</th>
+            <td>{{ user.email }}</td>
+        </tr> 
+      </table>
+      <a class="btn btn-warning" href='{% url 'listing' %}'>View Listing</a> | 
+      <a class="btn btn-primary" href='{% url 'add_listing' %}'>Add Vehicle</a> 
+    {%endif%}
+    
+    
   </div>
 {%endblock%}
