@@ -13,7 +13,7 @@ def place_deposit(request,id):
         return render(request, 'place_deposit.html', {
             'key' : key,
             'amount' : amount,
-            'd' : car
+            'car' : car
         })
     else:
         stripe.api_key = settings.STRIPE_SECRET_KEY #2
@@ -23,4 +23,6 @@ def place_deposit(request,id):
             description='Deposit For Car',
             source=request.POST['stripeToken']
         )
+        car.status = 'Sold'
+        car.save()
         return redirect(reverse('profile'))

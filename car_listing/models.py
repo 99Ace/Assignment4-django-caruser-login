@@ -1,4 +1,5 @@
 from django.db import models
+from pyuploadcare.dj.models import ImageField
 
 # Create your models here.
 class Vehicle(models.Model):
@@ -76,6 +77,10 @@ class Vehicle(models.Model):
         choices = STATUS,
         default= 'Available'
     )
+    
+    # ALLOW USER TO UPLOAD PICTURE TO SHOW THE CAR - (Limit to 1 pic for this project)
+    image = ImageField(null=True)
+
     
     """ AUTO ADD THE CREATION DATE """
     date = models.DateTimeField(auto_now_add=True)

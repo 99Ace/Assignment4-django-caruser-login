@@ -1,5 +1,7 @@
 from django import forms
 from .models import Vehicle
+from pyuploadcare.dj.forms import ImageField
+
 
 class NewEntry(forms.ModelForm):
     class Meta:
@@ -13,7 +15,9 @@ class NewEntry(forms.ModelForm):
             'price',
             'mileage',
             'description',
-            'status'
+            'image',
+            'status',
+            
         )
         
 class EditEntry(forms.ModelForm):
@@ -27,5 +31,6 @@ class EditEntry(forms.ModelForm):
             'price',
             'mileage',
             'description',
+            'image',
             'status'
         )

@@ -38,6 +38,7 @@
 {%endblock %}
 
 {%block content %}
+
 <div id="car-listing">
   <!--Car Listing for MD screen & above-->
   <div class="table-responsive d-md-block d-none">
@@ -51,7 +52,11 @@
           <th>Year of Make</th>
           <th>Mileage</th>
           <th>Vehicle Type</th>
-          <th><input type="text" placeholder="Enter your search" /></button></th>
+          <th>
+            <form>
+              <input type="text" placeholder="Enter your search" />
+            </form>
+          </th>  
           <th>Option</th>
         </tr>
       </thead>
@@ -64,21 +69,42 @@
             <td rowspan="3">
               <image src="../static/image-page/mini.jpg" class="car-image" />
             </td>
-            <td class="blue text-left"><b>{{ d.car_make }} {{ d.car_model }}</b></td>
+            <td class="blue text-left"><b>{{ d.car_make }} {{ d.car_model }}</b>
+            {% if d.status == 'Sold' %}<span class="text-danger"><b> ( Sold ) </b></span>{% endif %}   
+            </td>
             <td style="color:red"><b>
-             {{ d.price }}
+            {% if d.status == 'Available' %}  $ {{ d.price  }} {% endif %}
+            {% if d.status == 'Sold' %} -- {% endif %}
               </b></td>
             <td >
               {{ d.year_of_make }}
               </td>
-            <td>{{ d.mileage }}</td>
+            <td>
+            {% if d.status == 'Available' %}  {{ d.mileage }} km {% endif %}
+            {% if d.status == 'Sold' %} -- {% endif %}
+            </td>
             <td>{{ d.car_type }}</td>
             <td rowspan="2" class=" text-left">
-              <span class="car-badge badge badge-primary"> <a> {{ d.car_make }} </a></span>
-              <span class="car-badge badge badge-primary"> {{ d.car_model }} </span>
-              <span class="car-badge badge badge-primary"> {{ d.year_of_make }} </span>
-              <span class="car-badge badge badge-primary"> {{ d.car_type }} </span>
-              <span class="car-badge badge badge-primary"> {{ d.status }} </span>
+              <span 
+                    {% if d.status == 'Available' %} class="badge badge-primary" {% endif %}
+                    {% if d.status == 'Sold' %} class="badge badge-danger" {% endif %}              
+                    > {{ d.car_make }} </span>
+              <span 
+                    {% if d.status == 'Available' %} class="badge badge-primary" {% endif %}
+                    {% if d.status == 'Sold' %} class="badge badge-danger" {% endif %}              
+                    > {{ d.car_model }} </span>
+              <span 
+                    {% if d.status == 'Available' %} class="badge badge-primary" {% endif %}
+                    {% if d.status == 'Sold' %} class="badge badge-danger" {% endif %}              
+                    > {{ d.year_of_make }} </span>
+              <span 
+                    {% if d.status == 'Available' %} class="badge badge-primary" {% endif %}
+                    {% if d.status == 'Sold' %} class="badge badge-danger" {% endif %}              
+                    > {{ d.car_type }} </span>
+              <span 
+                    {% if d.status == 'Available' %} class="badge badge-primary" {% endif %}
+                    {% if d.status == 'Sold' %} class="badge badge-danger" {% endif %}              
+                    > {{ d.status }} </span>              
             </td>
             <td class='border'>
               <a href='edit_listing/{{d.id}}'>Edit</a>|
@@ -90,7 +116,13 @@
               <b>Description :   </b> {{ d.description }}
             </td>
             <td>
-              <a href='../deposit/place_deposit/{{d.id}}' class="btn btn-danger">Place Deposit</a>
+              {% if d.status == 'Available' %}     
+              <a href='../deposit/place_deposit/{{d.id}}' class="btn btn-warning">Place Deposit</a>
+              {% endif %}
+              
+              {% if d.status == 'Sold' %}
+              <a href='' class="btn btn-danger">Sold</a>
+              {% endif %}
             </td>
           </tr>
     

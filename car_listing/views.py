@@ -4,18 +4,19 @@ from .forms import NewEntry, EditEntry
 from .models import Vehicle
 
 # Create your views here.
+# DISPLAY ALL THE CARS IN LISTINGS
 def listing(request):
     results = Vehicle.objects.all()
     return render(request, 'listing.html', {
         'details':results
     })
    
-   
-""" TO CREATE A NEW VEHICLE LISTING """  
+# TO CREATE A NEW VEHICLE LISTING
 def add_listing(request):
     if request.method == "POST":
         new_entry_form = NewEntry(request.POST, request.FILES)
         if new_entry_form.is_valid():
+            
             new_entry_form.save()
             return redirect(listing)
     else:
@@ -24,6 +25,7 @@ def add_listing(request):
             'form' : new_entry_form
         })
     
+# ALLOW USER TO EDIT SELECTED FIELDS FOR THE VEHICLE
 def edit_listing(request, id):
     car = get_object_or_404(Vehicle, pk=id)
     
@@ -41,12 +43,14 @@ def edit_listing(request, id):
         })
     return render(request, 'edit_listing.html')
 
+# CONFIRMATION WITH USER IF THEY REALLY WANT TO DELETE THE VEHICLE LISTING
 def confirm_delete(request, id):
     car = get_object_or_404(Vehicle, pk=id)
     return render(request, 'confirm_delete.html', {
         'car': car
     })    
-    
+
+# DELETE THE VEHICLE LISTING 
 def delete_listing(request, id):
     Vehicle.objects.filter(pk=id).delete()
     return redirect(listing)
