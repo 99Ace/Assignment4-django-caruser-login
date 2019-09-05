@@ -16,7 +16,6 @@ def add_listing(request):
     if request.method == "POST":
         new_entry_form = NewEntry(request.POST, request.FILES)
         if new_entry_form.is_valid():
-            
             new_entry_form.save()
             return redirect(listing)
     else:

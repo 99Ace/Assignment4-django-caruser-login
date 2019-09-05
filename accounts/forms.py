@@ -11,7 +11,9 @@ class LoginForm(forms.Form):
     
     
 class UserRegistrationForm(UserCreationForm):
-    password1 = forms.CharField(widget=forms.PasswordInput)
+    password1 = forms.CharField(
+        label="Enter Password",
+        widget=forms.PasswordInput)
     password2 = forms.CharField(
         label="Password Confirmation",
         widget=forms.PasswordInput)
