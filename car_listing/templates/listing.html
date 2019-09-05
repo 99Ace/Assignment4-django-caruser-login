@@ -103,7 +103,8 @@
               <span 
                     {% if d.status == 'Available' %} class="badge badge-primary" {% endif %}
                     {% if d.status == 'Sold' %} class="badge badge-danger" {% endif %}              
-                    > {{ d.status }} </span>              
+                    > {{ d.status }} </span>   
+                    
             </td>
             <td class='border'>
               <a href='edit_listing/{{d.id}}'>Edit</a>|

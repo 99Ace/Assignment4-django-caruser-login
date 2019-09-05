@@ -4,7 +4,10 @@
 
 
 {%block title %}   
-<h1> Main Page</h1>
+{% if user.is_authenticated %}
+<h1> User Profile Page</h1>
+{%endif%}
+
 {%endblock %}
 {%block content %}
   <div> 
